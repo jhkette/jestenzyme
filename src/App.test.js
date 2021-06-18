@@ -26,13 +26,16 @@ Enzyme.configure({adapter: new EnzymeAdapter()})
   }
   
   test('renders without error', () => {
-    const wrapper = setup();
+    const wrapper = setup(); // get wrapper
+     // get app component with data-test - then expect lenth to be one
     const appComponent = findByTestAttr(wrapper, 'component-app');
     expect(appComponent.length).toBe(1);
   });
   
   test('renders increment button', () => {
-    const wrapper = setup();
+    const wrapper = setup(); // get wrapper
+    // get button - use function with Enzyme shallow wrapper to search within and the data-test value
+    // to find
     const button = findByTestAttr(wrapper, 'increment-button');
     expect(button.length).toBe(1);
   });
